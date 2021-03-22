@@ -1,18 +1,19 @@
 <?php
 require_once 'C:\xampp\htdocs\ObjWeb\phpObject\SmartyGet.php';
 require_once 'C:\xampp\htdocs\ObjWeb\phpObject\SubblogDBManager.php';
-
+require_once 'C:\xampp\htdocs\ObjWeb\phpObject\UserParameter.php';
 
 class SmartyGetSubblog extends SmartyGet{
     protected $name_in;
     protected $message_in;
+    protected $param_bool;
 
-    public function formData($name,$message){
+    public function formData($name,$message,$user_name,$user_mail,$user_pass){
         if(empty($name)){
             $name = '名無しさん';
         }
         $subblog_db_manager = new SubblogDBManager();
-        $db_insert = $subblog_db_manager->db_insert([$name,$message]);
+        $db_insert = $subblog_db_manager->db_insert([$name,$message,$user_name,$user_mail,$user_pass]);
         if($db_insert == 'TRUE'){
 
         }else{
@@ -25,6 +26,10 @@ class SmartyGetSubblog extends SmartyGet{
         $s->template_dir = 'template';
         $s->compile_dir = 'template_c';
 
+        list($userName,$userMail,$userPass) = UserParameter::getUser();
+        $s->assign('user_name',$userName);
+        $s->assign('user_mail',$userMail);
+        $s->assign('user_pass',$userPass);
         $subblog_db_manager = new SubblogDBManager();
         list($db_state_message,$db_get_sel) = $subblog_db_manager->db_select('*','');
         if($db_state_message == 'TRUE'){
@@ -33,16 +38,48 @@ class SmartyGetSubblog extends SmartyGet{
             $s->assign("blog_log",['name' => '表示できません','message' => '表示できません']);
              
         }
+        
+        
         $s->display($filename);
     }
 
     public function getTmpDeleteConf($param,$filename){
+        $param_bool = 0;
+
+        $subblog_id = $param[0];
+        $name = $param[1];
+        $message = $param[2];
+
+        list($userName,$userMail,$userPass) = UserParameter::getUser();
         $s = new Smarty();
         $s->template_dir = 'template';
         $s->compile_dir = 'template_c';
-        $s->assign("id",$param[0]);
-        $s->assign("name",$param[1]);
-        $s->assign("message",$param[2]);
+        $s->assign("id",$subblog_id);
+        $s->assign("name",$name);
+        $s->assign("message",$message);
+        $s->assign("user_name",$userName);
+        $s->assign("user_mail",$userMail);
+        $s->assign("user_pass",$userPass);
+        $subblog_db_manager = new SubblogDBManager();
+        list($db_state_message,$db_get_sel) = $subblog_db_manager->db_select(
+            '*',
+            "WHERE id = $subblog_id"
+        );
+        var_dump($db_get_sel);
+        if($db_state_message == 'TRUE'){
+            $db_user_name = $db_get_sel[0]['user_name'];
+            $db_user_mail = $db_get_sel[0]['user_mail'];
+            $db_user_pass = $db_get_sel[0]['user_pass'];
+            $db_get_user = [$db_user_name,$db_user_mail,$db_user_pass];
+            
+            if($db_get_user == [$userName,$userMail,$userPass]){
+                $param_bool = 1;
+            }
+        }
+        else{
+            $param_bool = 0;
+        }
+        $s->assign("param_bool",$param_bool);
         $s->display($filename);
     }
 

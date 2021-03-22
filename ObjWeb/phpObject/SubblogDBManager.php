@@ -12,7 +12,7 @@ class SubblogDBManager extends DbManager{
         try{
             $pdo = new PDO($this->dsn,$this->usr,$this->pass);
             $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $ins = $pdo->prepare("INSERT INTO mini_blog(name,message) VALUES ('$array_log[0]','$array_log[1]')");
+            $ins = $pdo->prepare("INSERT INTO mini_blog(name,message,user_name,user_mail,user_pass) VALUES ('$array_log[0]','$array_log[1]','$array_log[2]','$array_log[3]','$array_log[4]')");
             $ins->execute();
             $this->state_message = 'TRUE';
         }catch(PDOException $e){

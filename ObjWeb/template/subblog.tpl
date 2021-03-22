@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>SUBBLOG</h1>
-    <form name="form1" method="post" action="http://localhost/ObjWeb/phpSource/subblog.php">
+    <form name="form1" value = "subblog" method="post" action="http://localhost/ObjWeb/phpSource/subblog.php">
     <table border="1" align="center" bgcolor="palegreen">
         <tr>
             <td colspan="2">コメントを入力してください。ユーザー名も記入できます。</td>
@@ -27,6 +27,10 @@
         </div></td>
         </tr>
     </table>
+    <input type="hidden" name = "act" value="subblog_update">
+    <input type="hidden" name = "user_name" value="{$user_name}">
+    <input type="hidden" name = "user_mail" value="{$user_mail}">
+    <input type="hidden" name = "user_pass" value="{$user_pass}">
     </form>
     {foreach from=$blog_log item=$blog}
         <form name="form1" method="POST" action="subblog_edit_or_delete.php" >
@@ -34,6 +38,10 @@
         <input type="hidden" name="id" value={$blog.id}>
         <input type="hidden" name="message" value={$blog.message}>
         <input type="hidden" name="name" value={$blog.name}>
+        <input type="hidden" name = "user_name" value="{$user_name}">
+        <input type="hidden" name = "user_mail" value="{$user_mail}">
+        <input type="hidden" name = "user_pass" value="{$user_pass}">
+    
         <input type="submit" name="edit" value="編集する">
         <input type="submit" name="delete" value="削除する">
         </p> 
