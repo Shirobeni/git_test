@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-16 23:59:46
+/* Smarty version 3.1.38, created on 2021-03-22 01:29:56
   from 'C:\xampp\htdocs\ObjWeb\template\subblog.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_60513862db0a80_40262206',
+  'unifunc' => 'content_6057e504e50530_31281752',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fce38d9f7e1dbb22699f1460586153b54d969d0c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ObjWeb\\template\\subblog.tpl',
-      1 => 1615935582,
+      1 => 1616372848,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60513862db0a80_40262206 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6057e504e50530_31281752 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +28,7 @@ function content_60513862db0a80_40262206 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 <body>
     <h1>SUBBLOG</h1>
-    <form name="form1" method="post" action="http://localhost/ObjWeb/phpSource/subblog.php">
+    <form name="form1" value = "subblog" method="post" action="http://localhost/ObjWeb/phpSource/subblog.php">
     <table border="1" align="center" bgcolor="palegreen">
         <tr>
             <td colspan="2">コメントを入力してください。ユーザー名も記入できます。</td>
@@ -50,6 +50,13 @@ function content_60513862db0a80_40262206 (Smarty_Internal_Template $_smarty_tpl)
         </div></td>
         </tr>
     </table>
+    <input type="hidden" name = "act" value="subblog_update">
+    <input type="hidden" name = "user_name" value="<?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+">
+    <input type="hidden" name = "user_mail" value="<?php echo $_smarty_tpl->tpl_vars['user_mail']->value;?>
+">
+    <input type="hidden" name = "user_pass" value="<?php echo $_smarty_tpl->tpl_vars['user_pass']->value;?>
+">
     </form>
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['blog_log']->value, 'blog');
@@ -67,6 +74,13 @@ $_smarty_tpl->tpl_vars['blog']->do_else = false;
 >
         <input type="hidden" name="name" value=<?php echo $_smarty_tpl->tpl_vars['blog']->value['name'];?>
 >
+        <input type="hidden" name = "user_name" value="<?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+">
+        <input type="hidden" name = "user_mail" value="<?php echo $_smarty_tpl->tpl_vars['user_mail']->value;?>
+">
+        <input type="hidden" name = "user_pass" value="<?php echo $_smarty_tpl->tpl_vars['user_pass']->value;?>
+">
+    
         <input type="submit" name="edit" value="編集する">
         <input type="submit" name="delete" value="削除する">
         </p> 

@@ -10,12 +10,14 @@
         <td colspan="2">{$state_message}</td>
     </tr>
     <td colspan = "2"><div align="center">
-    <input type="button"value="サブブログへ戻る" onClick="location.href='http://localhost/ObjWeb/phpSource/subblog.php'">
+    <form name = "form1" value = 'login' method="post" action="http://localhost/ObjWeb/phpSource/subblog.php">
+        <input type="hidden" name = "user_name" value="{$user_name}">
+        <input type="hidden" name = "user_mail" value="{$user_mail}">
+        <input type="hidden" name = "user_pass" value="{$user_pass}">
+        <input type="hidden" name = "act" value="subblog">
+        <input type="submit" name = "subblog" value="サブブログへ戻る">
+    </form>
     </div></td>
     </table>
-    <br /><br />
-    <a href = "http://localhost/ObjWeb/phpSource/login.php">ログアウト</a>
-    <br />
-    <a href = "http://localhost/ObjWeb/phpSource/title.php">ホームへ戻る</a>
 </body>
 </html>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.38, created on 2021-03-04 00:43:07
+/* Smarty version 3.1.38, created on 2021-03-19 17:08:34
   from 'C:\xampp\htdocs\ObjWeb\template\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.38',
-  'unifunc' => 'content_60401f0b8a0421_84724916',
+  'unifunc' => 'content_6054cc82589361_90295698',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b0a25204b0b4809e21ad6445263e9b878cd63aa3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ObjWeb\\template\\login.tpl',
-      1 => 1614814290,
+      1 => 1616170024,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60401f0b8a0421_84724916 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6054cc82589361_90295698 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html>
 <head>
     <title>ログイン</title>
 </head>
 <body>
-    <form name = "form1" method="post" action="http://localhost/ObjWeb/phpSource/login.php">
+    <form name = "form1" value = 'login' method="post" action="http://localhost/ObjWeb/phpSource/login.php">
     <h1>Login</h1>
     <p>ユーザー名、メールアドレス、パスワードの入力をしてください。</p>
     <tr>

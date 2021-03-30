@@ -4,7 +4,7 @@
     <title>ログイン</title>
 </head>
 <body>
-    <form name = "form1" method="post" action="http://localhost/ObjWeb/phpSource/login.php">
+    <form name = "form1" value = 'login' method="post" action="http://localhost/ObjWeb/phpSource/login.php">
     <h1>Login</h1>
     <p>ユーザー名、メールアドレス、パスワードの入力をしてください。</p>
     <tr>

@@ -2,21 +2,26 @@
 require_once 'C:\xampp\htdocs\ObjWeb\phpObject\SmartyGetSubblog.php';
 require_once 'C:\xampp\htdocs\ObjWeb\phpObject\SubblogDBManager.php';
 require_once 'C:\xampp\htdocs\ObjWeb\phpObject\UserParameter.php';
-
+require_once 'C:\xampp\htdocs\ObjWeb\phpObject\Session.php';
+require_once 'C:\xampp\htdocs\ObjWeb\phpObject\Request.php';
 
 $s_subblog = new SmartyGetSubblog();
+$session = new Session();
+$request = new Request();
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-   session_start();
-   $name = $_POST['name'];
-   $message = $_POST['message'];
-   $subblog_id = $_POST['id'];
-   $_SESSION['user_name'] = $_POST['user_name'];
-   $_SESSION['user_mail'] = $_POST['user_mail'];
-   $_SESSION['user_pass'] = $_POST['user_pass'];
-   $user_name = $_SESSION['user_name'];
-   $user_mail = $_SESSION['user_mail'];
-   $user_pass = $_SESSION['user_pass'];
+if($request->isPost() == true){
+   //session_start();
+   $get_session = $session->getSession("prm");
+   $name = $request->getPost('name');
+   $message = $request->getPost('message');
+   $subblog_id = $request->getPost('id');
+   // $name = $_POST['name'];
+   // $message = $_POST['message'];
+   // $subblog_id = $_POST['id'];
+   $user_name = $get_session['name'];
+   $user_mail = $get_session['mail'];
+   $user_pass = $get_session['pass'];
+   
    UserParameter::setUser($user_name,$user_mail,$user_pass);
 
    if(isset($_POST['edit'])){

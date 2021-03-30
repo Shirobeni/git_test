@@ -1,6 +1,7 @@
 <?php
 require_once 'C:\xampp\htdocs\ObjWeb\phpObject\SmartyGet.php';
 require_once 'C:\xampp\htdocs\ObjWeb\phpObject\LoginDbManager.php';
+require_once 'C:\xampp\htdocs\ObjWeb\phpObject\Session.php';
 
 class SmartyGetLogin extends SmartyGet{
     public $name_message = "";
@@ -25,11 +26,14 @@ class SmartyGetLogin extends SmartyGet{
     }
     public function assign_check($param){
         $_SESSION["prm"] = $param;
-        extract($_SESSION["prm"]);
+        $session = new Session();
 
-        $log_name = $_SESSION["prm"]["name"];
-        $log_mail = $_SESSION["prm"]["mail"];
-        $log_pass = $_SESSION["prm"]["pass"];
+        $session->setSession("prm",$param);
+        $getParam = $session->getSession("prm");
+
+        $log_name = $getParam["name"];
+        $log_mail = $getParam["mail"];
+        $log_pass = $getParam["pass"];
 
         if((!empty($log_name)) && (!empty($log_pass)) && (!empty($log_mail)))
         {
@@ -37,9 +41,8 @@ class SmartyGetLogin extends SmartyGet{
             $db_select = $login_db_manager->db_select("*","WHERE log_name = '$log_name' AND log_mail = '$log_mail' AND log_pass = '$log_pass'");
             
             if($db_select == 'TRUE'){
-                http_response_code(301);
-                header("Location:http://localhost/ObjWeb/phpSource/subblog.php");
-                exit;
+                //http_response_code(301);
+                header("Location:http://localhost/ObjWeb/phpSource/subblog.php",true,307);
             }else if($db_select == 'FALSE'){
                 $this->pass_message = "パスワードが違います";
             }
