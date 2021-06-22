@@ -1,30 +1,32 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.38, created on 2021-03-11 15:18:14
+  from 'C:\xampp\htdocs\ObjWeb\template\blogpage1.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.38',
+  'unifunc' => 'content_604a26a606a563_27270212',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '3cf9503c0b9369e5c8f91ac61b32e6f561d7a4c2' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\ObjWeb\\template\\blogpage1.tpl',
+      1 => 1615472290,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_604a26a606a563_27270212 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html>
 <head>
     <title>トップページ</title>
 </head>
 <body>
-    <h3>2021/4/19</h3>
-    <p>いろいろ忙しくて手つかずで・・・とりあえずなんとかブログ書けるぐらいには復帰しました。</p>
-    <p>ということで総まとめなのだ～<br>
-    ・アケゲー報告(クリアタイトル増えました)<br>
-    ギャラガアレンジメント ALLとストライカーズ1945 Ⅱ(4機設定) 1周できやした。<br>
-    どちらも長い期間残ってた課題だったんで・・・ストライカーズは彩京STG初クリア。4機ではあるが・・・<br>
-    次はガンバードか戦国エースを。<br>
-    その他収穫はミカドにて久々にF/Aとドルアーガを1コインクリアできたこと、ネビュラスレイをデフォルト設定で<br>
-    1コインクリアできたこと。ゼビアレは13面まで。
-    ・エスカフローネ展その他中野行ってきたよ<br>
-    墓場の画廊さんにてエスカフローネ展を。キャラ設定や一部セル画の展示あって流石といいたいところ・・・<br>
-    エスカフローネ飛竜形態のシャツはかっこよそう。<br>
-    そしてまんだらけにてネタでボトムズ絵本GET。あの「このうらぎりものめ！」とか「はげしいごうもん」でお馴染みの<br>
-    あれですよあれ。800円だったけど、もう少し高いかなと予測してたのでまあ、安いほうかな？<br>
-    あとはビバップのBLUEをGET。
-    ・ギターやプログラミング、アニメその他<br>
-    ギターは相変わらず鍛錬中ですなー。DASのFor The Futureが弾けそうだったり。<br>
-    プログラミングは3Dパックマンがシステム部分完成行けそうな。
-    アニメは現在バトスピブレイヴとソードアイズ、ガンダムSEEDとサンチャン5作品を追い中。<br>
-    クラッシャージョウと逆シャアを視聴。
-    </p>
     <h3>2021/3/12</h3>
     <p>サブブログに編集と削除ボタンを追加中・・・今の仕様だと誰でも出来る無法地帯になるからしばしお待ちを・・・<br>
     というか仕様を新しく変えてみようか・・・</p>
@@ -130,4 +132,5 @@
     随分とあっさりしているものの、これでも歩いているだけでも好きなんです。</p>
     <p><a href = "http://localhost/ObjWeb/phpSource/blog.php">戻る</a></p>
 </body>
-</html>
+</html><?php }
+}
